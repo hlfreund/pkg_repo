@@ -1,0 +1,37 @@
+---
+title: "Introduction to the DEGCompPkg"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to this package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(DEGCompPkg)
+```
+
+# Contents of Package
+
+This package contains three functions used by the DEG Challenge Project workflow. These functions rely on functions within base R, and should not require outside libraries to run.
+
+# Description of Functions
+
+# find_DEGs()
+
+This file accepts a dataframe of False Discovery Rates (FDR) and uses a given threshold (0.2) and creates a dataframe describing the differential expression of the genes from the input file. If the FDR is below 0.2, the cell in this new data frame is labeled with a 1; if the FDR is greater than 0.2, the cell in the new dataframe is a 0. The outputs from this function can then be supplied to label_DEs().
+
+# label_DEs()
+
+This function uses the output from find_DEGs() as its input. This function will calculate the rowSums() of 1s and 0s for each gene across multiple sample comparisons, and create an array containing labels (the 1s and 0s) and the gene IDs. This new array can be used to represent the ground truth genes, or to represent a list of DEGs from a particular output (i.e., edgeR).
+
+# split_df()
+
+This function accepts a dataframe as input and will create new dataframes for each column found in the input. You can also add a suffix to these new dataframe names in case you create multiple dataframes form split_df() that have the same name. For example, if you are creating dataframes of sample comparisons from edgeR results and DESeq2 results, you can add an "edgeR" or "deseq2" suffix to each of these data frame names.
