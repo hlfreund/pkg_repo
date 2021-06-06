@@ -1,14 +1,11 @@
 #' @title Label_DEs
-#' @description interprets rowSums of find_DEGs function to create list of 0 (NDE) and 1s (DEs) and GeneIDs
-#' @param x PARAM_DESCRIPTION
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
+#' @description Uses the output from find_DEGs() to create an array with individual 0 or 1 labels per gene ID.
+#' @param x A data frame of 0s and 1s.
+#' @return An array with two columns, labels for 0 or 1, and GeneIDs that correspond to each label.
+#' @details This function accepts a data frame containg 0s and 1s. For the purpose of this function, 1s indicate differentail gene expression and 0s indicate no differeential gene expression. This function takes the rowSums() of 0s and 1s per gene IDs, and assigns any gene with a sum > 1 with a 1 to indicate differential gene expression. Genee IDs with a sum of 0 are labeled with a 0 to represent no differential gene expression.
 #' @examples
 #' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
+#' common_DEs<-label_DEs(DEs_labeled)
 #' @rdname label_DEs
 #' @export
 label_DEs<-function(x){

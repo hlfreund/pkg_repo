@@ -1,14 +1,11 @@
 #' @title find_DEGs
-#' @description looks at dataframes of FDRs and creates matrix of same size as input df, labeling cells with 1s if FDR < 0.2 and 0 if FDR > 0.2
-#' @param x PARAM_DESCRIPTION
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
+#' @description Creates a data frame of 0s and 1s to represent differential expression based on a specified FDR threshold.
+#' @param x A data frame of false discovery rates (FDRs) or p values.
+#' @return A data frame with the same dimensions as the input dataframe, containing 0s and 1s.
+#' @details FDRs < 0.2 are assigned a 1 to indicate differential gene expression. FDRs > 0.2 are assigned a 0 to indicate no differential gene expression.
 #' @examples
 #' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
+#' DEs_labeled<-find_DEGs(pvals)
 #' @rdname find_DEGs
 #' @export
 find_DEGs<-function(x){

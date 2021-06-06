@@ -1,15 +1,12 @@
 #' @title split_df
-#' @description split data frame columns into separate dataframes, and adds suffix to dfs' names in case multiple Dfs that were created have the same names
-#' @param x PARAM_DESCRIPTION
-#' @param z PARAM_DESCRIPTION, Default: NULL
-#' @return OUTPUT_DESCRIPTION
-#' @details DETAILS
+#' @description Creates data frame out of each column in a given data frame.
+#' @param x A data frame
+#' @param z A label to be added as a suffix to the name of each created data frame.
+#' @return A data frame for each column from the input data frame.
+#' @details This function creates a data frame in the Global Env. for each column in the input data frame. In case multiple columns have similar names, or you would like to keep track of the dataframe where these columns originated from, you can add a suffix to the end of the data frame name.
 #' @examples
 #' \dontrun{
-#' if(interactive()){
-#'  #EXAMPLE1
-#'  }
-#' }
+#' split_df(pval_from_edgeR, "er")
 #' @rdname split_df
 #' @export
 split_df<-function(x, z=NULL){
