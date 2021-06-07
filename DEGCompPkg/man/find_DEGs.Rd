@@ -7,21 +7,14 @@
 find_DEGs(x)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{A data frame of false discovery rates (FDRs) or p values.}
 }
 \value{
-OUTPUT_DESCRIPTION
+A data frame with the same dimensions as the input dataframe, containing 0s and 1s.
 }
 \description{
-looks at dataframes of FDRs and creates matrix of same size as input df, labeling cells with 1s if FDR < 0.2 and 0 if FDR > 0.2
+Creates a data frame of 0s and 1s to represent differential expression based on a specified FDR threshold.
 }
 \details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+FDRs < 0.2 are assigned a 1 to indicate differential gene expression. FDRs > 0.2 are assigned a 0 to indicate no differential gene expression.
 }

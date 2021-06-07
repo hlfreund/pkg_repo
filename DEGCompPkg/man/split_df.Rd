@@ -7,23 +7,16 @@
 split_df(x, z = NULL)
 }
 \arguments{
-\item{x}{PARAM_DESCRIPTION}
+\item{x}{A data frame}
 
-\item{z}{PARAM_DESCRIPTION, Default: NULL}
+\item{z}{A label to be added as a suffix to the name of each created data frame.}
 }
 \value{
-OUTPUT_DESCRIPTION
+A data frame for each column from the input data frame.
 }
 \description{
-split data frame columns into separate dataframes, and adds suffix to dfs' names in case multiple Dfs that were created have the same names
+Creates data frame out of each column in a given data frame.
 }
 \details{
-DETAILS
-}
-\examples{
-\dontrun{
-if(interactive()){
- #EXAMPLE1
- }
-}
+This function creates a data frame in the Global Env. for each column in the input data frame. In case multiple columns have similar names, or you would like to keep track of the dataframe where these columns originated from, you can add a suffix to the end of the data frame name.
 }
